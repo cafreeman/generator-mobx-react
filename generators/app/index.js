@@ -68,7 +68,10 @@ module.exports = yeoman.Base.extend({
         this.fs.copyTpl(
           this.templatePath(dir),
           this.destinationPath(dir),
-          {name: this.props.name}
+          {
+            name: this.props.name,
+            description: this.props.description
+          }
         );
       });
     }
