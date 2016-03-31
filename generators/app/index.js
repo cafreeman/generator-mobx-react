@@ -1,7 +1,5 @@
 'use strict';
 const yeoman = require('yeoman-generator');
-// const chalk = require('chalk');
-// const yosay = require('yosay');
 
 module.exports = yeoman.Base.extend({
   prompting() {
@@ -25,6 +23,12 @@ module.exports = yeoman.Base.extend({
         name: 'es6',
         message: 'Generate es6 modules?',
         default: true
+      },
+      {
+        type: 'confirm',
+        name: 'skip-install',
+        message: 'Would you like to install all dependencies now?',
+        default: false
       }
     ], function (answers) {
       this.props = answers;
@@ -71,6 +75,11 @@ module.exports = yeoman.Base.extend({
   },
 
   install() {
-    this.npmInstall();
+    if (this.props['skip-install']) {
+      this.log(`Skipping the install step. Run \`npm install\` inside the project root when
+        you're ready.`);
+    } else {
+      this.npmInstall();
+    }
   }
 });
