@@ -54,7 +54,6 @@ module.exports = yeoman.Base.extend({
     let filesToCopy = [
       '.eslintrc.js',
       '.babelrc',
-      '.gitignore',
       'webpack.config.js'
     ];
 
