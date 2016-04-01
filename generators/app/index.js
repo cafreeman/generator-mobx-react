@@ -36,46 +36,42 @@ module.exports = yeoman.Base.extend({
     }.bind(this));
   },
 
-  writing: {
-    config() {
+  writing() {
+    this.fs.copyTpl(
+      this.templatePath('package.json'),
+      this.destinationPath('package.json'), {
+        name: this.props.name,
+        description: this.props.description,
+        es6: this.props.es6 ? '"jsnext:main": "es6/index.js",' : ''
+      }
+    );
+
+    let filesToCopy = [
+      '.eslintrc.js',
+      '.gitignore',
+      '.babelrc',
+      '.gitignore',
+      'webpack.config.js'
+    ];
+
+    filesToCopy.forEach(file => {
       this.fs.copyTpl(
-        this.templatePath('package.json'),
-        this.destinationPath('package.json'), {
-          name: this.props.name,
-          description: this.props.description,
-          es6: this.props.es6 ? '"jsnext:main": "es6/index.js",' : ''
-        }
-      );
-
-      let filesToCopy = [
-        '.eslintrc.js',
-        '.gitignore',
-        '.babelrc',
-        '.gitignore',
-        'webpack.config.js'
-      ];
-
-      filesToCopy.forEach(file => {
-        this.fs.copyTpl(
-          this.templatePath(file),
-          this.destinationPath(file),
-          {
-            name: this.props.name
-          }
-        );
-      });
-    },
-
-    app() {
-      this.fs.copyTpl(
-        this.templatePath('src'),
-        this.destinationPath('src'),
+        this.templatePath(file),
+        this.destinationPath(file),
         {
-          name: this.props.name,
-          description: this.props.description
+          name: this.props.name
         }
       );
-    }
+    });
+
+    this.fs.copyTpl(
+      this.templatePath('src'),
+      this.destinationPath('src'),
+      {
+        name: this.props.name,
+        description: this.props.description
+      }
+    );
   },
 
   install() {

@@ -9,7 +9,7 @@
     "url": "https://github.com/cafreeman"
   },
   "files": [
-    "generators/app"
+    "generators"
   ],
   "main": "generators/app/index.js",
   "keywords": [
