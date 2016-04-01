@@ -1,7 +1,9 @@
-# generator-mobx-react [![NPM version][npm-image]][npm-url] [![Build Status][travis-image]][travis-url] [![Dependency Status][daviddm-image]][daviddm-url]
+# generator-mobx-react [![NPM version][npm-image]][npm-url] [![Dependency Status][daviddm-image]][daviddm-url]
 >
 
 ## Introduction
+
+**Note: This generator is massively WIP so use at your own risk**
 
 `mobx-react` is a fantastic library that combines [MobX](https://github.com/mobxjs/mobx) observables with [React](https://facebook.github.io/react/) for powerful, intuitive state management.
 
@@ -47,7 +49,7 @@ yo mobx-react
 
 ## TO DO
 
-- Create new folder
+- Create new folder if the current working directory doesn't match the project name
 
 ## License
 
