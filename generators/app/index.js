@@ -26,7 +26,7 @@ module.exports = yeoman.Base.extend({
       },
       {
         type: 'confirm',
-        name: 'skip-install',
+        name: 'install-deps',
         message: 'Would you like to install all dependencies now?',
         default: false
       }
@@ -78,11 +78,11 @@ module.exports = yeoman.Base.extend({
   },
 
   install() {
-    if (this.props['skip-install']) {
+    if (this.props['install-deps']) {
+      this.npmInstall();
+    } else {
       this.log(`Skipping the install step. Run \`npm install\` inside the project root when
         you're ready.`);
-    } else {
-      this.npmInstall();
     }
   }
 });
