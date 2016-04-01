@@ -56,24 +56,25 @@ module.exports = yeoman.Base.extend({
       ];
 
       filesToCopy.forEach(file => {
-        this.fs.copy(
+        this.fs.copyTpl(
           this.templatePath(file),
-          this.destinationPath(file)
+          this.destinationPath(file),
+          {
+            name: this.props.name
+          }
         );
       });
     },
 
     app() {
-      ['src', 'dist'].forEach(dir => {
-        this.fs.copyTpl(
-          this.templatePath(dir),
-          this.destinationPath(dir),
-          {
-            name: this.props.name,
-            description: this.props.description
-          }
-        );
-      });
+      this.fs.copyTpl(
+        this.templatePath('src'),
+        this.destinationPath('src'),
+        {
+          name: this.props.name,
+          description: this.props.description
+        }
+      );
     }
   },
 
