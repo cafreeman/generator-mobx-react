@@ -1,6 +1,6 @@
 {
   "name": "generator-mobx-react",
-  "version": "0.1.0",
+  "version": "0.0.1",
   "description": "A lightweight Yeoman for generator for scaffolding new projects using `React` and `mobx`",
   "homepage": "https://github.com/cafreeman/generator-mobx-react",
   "author": {
@@ -11,7 +11,7 @@
   "files": [
     "generators/app"
   ],
-  "main": "generators/index.js",
+  "main": "generators/app/index.js",
   "keywords": [
     "react",
     "mobx",
