@@ -46,9 +46,13 @@ module.exports = yeoman.Base.extend({
       }
     );
 
+    this.fs.copy(
+      this.templatePath('gitignore'),
+      this.destinationPath('.gitignore')
+    );
+
     let filesToCopy = [
       '.eslintrc.js',
-      '.gitignore',
       '.babelrc',
       '.gitignore',
       'webpack.config.js'
