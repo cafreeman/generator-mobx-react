@@ -35,7 +35,17 @@ const common = {
     loaders: [
       {
         test: /\.jsx?$/,
-        loaders: ['react-hot', 'babel-loader?cacheDirectory'],
+        loader: 'react-hot',
+        include: PATHS.src,
+      },
+      {
+        test: /\.jsx?$/,
+        loader: 'babel',
+        query: {
+          cacheDirectory: true,
+          presets: ['react', 'es2015', 'stage-1'],
+          plugins: ['transform-decorators-legacy', 'transform-object-assign', 'array-includes'],
+        },
         include: PATHS.src,
       },
     ],

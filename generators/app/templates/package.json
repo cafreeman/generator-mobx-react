@@ -7,6 +7,7 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "build": "webpack",
+    "build-es6": "rimraf 'es6' && babel --presets react,stage-1 --plugins transform-decorators-legacy,transform-object-assign,array-includes src -d es6",
     "start": "webpack-dev-server"
   },
   "author": "",
@@ -18,7 +19,7 @@
     "react-dom": "^0.14.8"
   },
   "devDependencies": {
-    "babel-core": "^6.7.4",
+    "babel-cli": "^6.6.5",
     "babel-eslint": "^6.0.0",
     "babel-loader": "^6.2.4",
     "babel-plugin-array-includes": "^2.0.3",
