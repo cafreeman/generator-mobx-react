@@ -1,11 +1,13 @@
 {
   "name": "<%= name %>",
-  "version": "0.1.0",
+  "version": "0.0.0",
   "description": "<%= description %>",
   "main": "index.js",
-  <%- es6 %>
+  "jsnext:main": "es6/index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
+    "compile": "npm run build && npm run build-es6",
+    "clean": "rimraf '*(es6|dist)'",
     "build": "webpack",
     "build-es6": "rimraf 'es6' && babel --presets react,stage-1 --plugins transform-decorators-legacy,transform-object-assign,array-includes src -d es6",
     "start": "webpack-dev-server"
@@ -37,6 +39,7 @@
     "html-webpack-plugin": "^2.15.0",
     "npm-install-webpack-plugin": "^3.0.0",
     "react-hot-loader": "^1.3.0",
+    "rimraf": "^2.5.2",
     "style-loader": "^0.13.1",
     "webpack": "^1.12.14",
     "webpack-dev-server": "^1.14.1",
