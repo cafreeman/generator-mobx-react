@@ -47,6 +47,16 @@ Then generate your new project:
 yo mobx-react
 ```
 
+## npm Scripts
+
+Once you've generated your project, you'll have access to the following npm scripts from the command line:
+
+- `npm run build`: Transpile and bundle your project via `webpack` using `production` optimizations.
+- `npm start`: Start `webpack-dev-server` at `http://localhost:8080`. `webpack-dev-server` will automatically rebuild your app whenever you save changes. In addition, it will hot-reload your changes without triggering a browser refresh (i.e. your state persists across file changes!!). Finally, it will automatically install any unresolved dependencies whenever you `import` them in your code.
+- `npm run build-es6`: Transpile your code to `ES2015` modules. Note that this option *does not* bundle or optimize your code. Instead, it simply transpiles each module in your `src` directory into a corresponding `ES2015` module in the `es6` directory. This gives you the option to then use a tree-shaking bundler like [rollup.js](http://rollupjs.org).
+- `npm run clean`: `rimraf` all the things (except `src` obviously)
+- `npm run compile`: Build all the things. This command will run all of the preceding build steps in sequence.
+
 ## TO DO
 
 - Create new folder if the current working directory doesn't match the project name
