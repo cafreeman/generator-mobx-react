@@ -15,18 +15,12 @@ module.exports = yeoman.Base.extend({
       {
         type: 'input',
         name: 'description',
-        message: 'Would you like to enter a description for your project?',
+        message: 'Please enter a description for your project',
         default: ''
       },
       {
         type: 'confirm',
-        name: 'es6',
-        message: 'Generate es6 modules?',
-        default: true
-      },
-      {
-        type: 'confirm',
-        name: 'install-deps',
+        name: 'installDeps',
         message: 'Would you like to install all dependencies now?',
         default: false
       }
@@ -41,8 +35,7 @@ module.exports = yeoman.Base.extend({
       this.templatePath('package.json'),
       this.destinationPath('package.json'), {
         name: this.props.name,
-        description: this.props.description,
-        es6: this.props.es6 ? '"jsnext:main": "es6/index.js",' : ''
+        description: this.props.description
       }
     );
 
@@ -53,7 +46,6 @@ module.exports = yeoman.Base.extend({
 
     let filesToCopy = [
       '.eslintrc.js',
-      '.babelrc',
       'webpack.config.js'
     ];
 
@@ -78,7 +70,7 @@ module.exports = yeoman.Base.extend({
   },
 
   install() {
-    if (this.props['install-deps']) {
+    if (this.props.installDeps) {
       this.npmInstall();
     } else {
       this.log(`Skipping the install step. Run \`npm install\` inside the project root when
