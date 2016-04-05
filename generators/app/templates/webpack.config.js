@@ -31,25 +31,6 @@ const common = {
       title: '<%= name %>',
     }),
   ],
-  module: {
-    loaders: [
-      {
-        test: /\.jsx?$/,
-        loader: 'react-hot',
-        include: PATHS.src,
-      },
-      {
-        test: /\.jsx?$/,
-        loader: 'babel',
-        query: {
-          cacheDirectory: true,
-          presets: ['react', 'es2015', 'stage-1'],
-          plugins: ['transform-decorators-legacy', 'transform-object-assign', 'array-includes'],
-        },
-        include: PATHS.src,
-      },
-    ],
-  },
 };
 
 // Default Config
@@ -75,6 +56,16 @@ if (TARGET === 'start' || !TARGET) {
         {
           test: /\.css$/,
           loaders: ['style', 'css'],
+          include: PATHS.src,
+        },
+        {
+          test: /\.jsx?$/,
+          loader: 'babel',
+          query: {
+            cacheDirectory: true,
+            presets: ['react', 'es2015', 'stage-1','react-hmre'],
+            plugins: ['transform-decorators-legacy', 'transform-object-assign', 'array-includes'],
+          },
           include: PATHS.src,
         },
       ],
@@ -108,6 +99,16 @@ if (TARGET === 'build') {
         {
           test: /\.css$/,
           loader: ExtractTextPlugin.extract('style', 'css'),
+          include: PATHS.src,
+        },
+        {
+          test: /\.jsx?$/,
+          loader: 'babel',
+          query: {
+            cacheDirectory: true,
+            presets: ['react', 'es2015', 'stage-1'],
+            plugins: ['transform-decorators-legacy', 'transform-object-assign', 'array-includes'],
+          },
           include: PATHS.src,
         },
       ],
