@@ -2,7 +2,7 @@ import { observable, computed } from 'mobx';
 
 class Store {
   name: string = '<%= name %>';
-  description: string = '<%= description =>';
+  description: string = '<%= description %>';
   @observable numClicks: number = 0;
 
   @computed get oddOrEven(): string {

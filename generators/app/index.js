@@ -1,4 +1,5 @@
 'use strict';
+
 const yeoman = require('yeoman-generator');
 
 module.exports = yeoman.Base.extend({
@@ -137,7 +138,7 @@ module.exports = yeoman.Base.extend({
       }
     );
 
-    // copy app src, dependenct on language choice
+    // copy app src, dependent on language choice
     this.fs.copyTpl(
       this.templatePath(`src_${this.props.language === 'es2015' ? 'es2015' : 'ts'}`),
       this.destinationPath('src'),

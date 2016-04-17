@@ -20,7 +20,7 @@ const common = {
     style: PATHS.style,
   },
   resolve: {
-    <% if (language === 'es2015') ? { %>
+    <% if (language === 'es2015') { %>
       extensions: ['', '.js', '.jsx'],
     <% } else { %>
       extensions: ['', '.ts', '.tsx', '.js']
