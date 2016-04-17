@@ -147,11 +147,31 @@ module.exports = yeoman.Base.extend({
         description: this.props.description,
       }
     );
+
+    if (this.props.language === 'ts') {
+      // typings.json, with react and react-dom already listed
+      this.fs.copyTpl(
+        this.templatePath('_typings.json'),
+        this.destinationPath('typings.json'),
+        {
+          name: this.props.name,
+        }
+      );
+
+      // basic tsconfig.json
+      this.fs.copy(
+        this.templatePath('_tsconfig.json'),
+        this.destinationPath('tsconfig.json')
+      );
+    }
   },
 
   install() {
     if (this.props.installDeps) {
       this.npmInstall();
+      if (this.props.language === 'ts') {
+        this.spawnCommandSync('./node_modules/.bin/typings', ['install']);
+      }
     } else {
       this.log(`Skipping the install step. Run \`npm install\` inside the project root when
         you're ready.`);
