@@ -25,8 +25,11 @@
     "yeoman-generator": "^0.22.0"
   },
   "devDependencies": {
-    "eslint": "~2.2.0",
+    "eslint": "^2.7.0",
+    "eslint-config-airbnb": "^7.0.0",
     "eslint-config-xo-space": "^0.10.0",
+    "eslint-plugin-jsx-a11y": "^0.6.2",
+    "eslint-plugin-react": "^4.3.0",
     "gulp": "^3.9.0",
     "gulp-eslint": "^2.0.0",
     "gulp-exclude-gitignore": "^1.0.0",
