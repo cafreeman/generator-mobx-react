@@ -1,0 +1,26 @@
+{
+  "name": "<%= name %>",
+  "version": "0.0.0",
+  "description": "<%= description %>",
+  "main": "index.js",
+  "jsnext:main": "es6/index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "compile": "npm run build && npm run build-es6",
+    "clean": "rimraf '*(es6|dist)'",
+    "build": "webpack",
+    "build-es6": "rimraf 'es6' && babel --presets react,stage-1 --plugins transform-decorators-legacy,transform-object-assign,array-includes src -d es6",
+    "start": "webpack-dev-server"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "mobx": "^2.0.4",
+    "mobx-react": "^3.0.3",
+    "react": "^0.14.8",
+    "react-dom": "^0.14.8"
+  },
+  "devDependencies": {
+    <%- devDeps %>
+  }
+}
