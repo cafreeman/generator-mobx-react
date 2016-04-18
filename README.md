@@ -3,8 +3,6 @@
 
 ## Introduction
 
-**Note: This generator is massively WIP so use at your own risk**
-
 `mobx-react` is a fantastic library that combines [MobX](https://github.com/mobxjs/mobx) observables with [React](https://facebook.github.io/react/) for powerful, intuitive state management.
 
 This generator is intended to help people get started with `mobx-react` by providing a relatively lightweight project generator that takes care of the basic project infrastructure and lets the user get started coding right away.
