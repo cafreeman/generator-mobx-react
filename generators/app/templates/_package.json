@@ -15,10 +15,10 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
-    "mobx": "^2.0.4",
-    "mobx-react": "^3.0.3",
-    "react": "^0.14.8",
-    "react-dom": "^0.14.8"
+    "mobx": "^2.0.0",
+    "mobx-react": "^3.0.0",
+    "react": "^15.0.0",
+    "react-dom": "^15.0.0"
   },
   "devDependencies": {
     <%- devDeps %>

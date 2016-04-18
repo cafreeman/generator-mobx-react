@@ -11,17 +11,21 @@ This generator is intended to help people get started with `mobx-react` by provi
 
 ## What `yo mobx-react` handles for you
 
-This generator will set up the following things for you:
+This generator will set up a basic React/MobX project for you, including the following features:
 
-- Babel 6, along with the following presets and plugins:
+  - Scaffold a basic app, including config files and dependencies
+  - Choice between ES2015 and TypeScript
+  - If using ES2015, `yo mobx-react` will set up Babel 6 + the appropriate plugins and presets for supporting React + Mobx
     - [babel-preset-es2015](http://babeljs.io/docs/plugins/preset-es2015/)
     - [babel-preset-stage-1](https://babeljs.io/docs/plugins/preset-stage-1/) (for spread/rest and extended class syntax)
     - [babel-preset-react](http://babeljs.io/docs/plugins/preset-react/)
     - [babel-plugin-transform-decorators-legacy](https://github.com/loganfsmyth/babel-plugin-transform-decorators-legacy) (since Babel 6 doesn't currently support decorators, we need this to work with `mobx`)
     - [babel-plugin-transform-object-assign](http://babeljs.io/docs/plugins/transform-object-assign/)
     - [babel-plugin-array-includes](https://github.com/stoeffel/babel-plugin-array-includes)
+  - If using TypeScript, `yo mobx-react` will install the latest version of TypeScript, plus [Typings](https://github.com/typings/typings) for type definitions. It will also set up a basic `tsconfig` and `typings.json` file for you, with `React` and `React-DOM` typings installed.
+
 - Webpack, with the following configuration
-    - transpilation via `babel-loader`
+    - transpilation via `babel-loader` or `ts-loader`
     - css bundling
     - npm-auto-install
     - code splitting in production builds
