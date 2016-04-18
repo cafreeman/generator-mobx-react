@@ -17,7 +17,7 @@ module.exports = yeoman.Base.extend({
         type: 'input',
         name: 'description',
         message: 'Please enter a description for your project',
-        default: '',
+        default: 'mobx is the best!',
       },
       {
         type: 'list',
@@ -101,6 +101,8 @@ module.exports = yeoman.Base.extend({
         throw new Error('No language was specified!');
       }
 
+      // sort in alphabetical order and then join into a JSON-friendly string to be inserted
+      // in `package.json`
       return fullDeps.sort().join(`,\n    `);
     }(baseDevDeps, this.props.language));
 
@@ -159,12 +161,15 @@ module.exports = yeoman.Base.extend({
 
   install() {
     if (this.props.installDeps) {
-      // this.npmInstall();
       this.npmInstall(null, null, () => {
         if (this.props.language === 'ts') {
           this.spawnCommandSync('./node_modules/.bin/typings', ['init']);
-          this.spawnCommandSync('./node_modules/.bin/typings', ['install', 'react', '--ambient', '--save']);
-          this.spawnCommandSync('./node_modules/.bin/typings', ['install',  'react-dom', '--ambient', '--save']);
+          this.spawnCommandSync('./node_modules/.bin/typings',
+            ['install', 'react', '--ambient', '--save']
+          );
+          this.spawnCommandSync('./node_modules/.bin/typings',
+            ['install', 'react-dom', '--ambient', '--save']
+          );
         }
       });
     } else {
