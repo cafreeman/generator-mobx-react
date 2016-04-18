@@ -65,6 +65,10 @@ Once you've generated your project, you'll have access to the following npm scri
 
 - Create new folder if the current working directory doesn't match the project name
 
+## Acknowledgements
+- @mweststrate and the [MobX](https://github.com/mobxjs/mobx) team
+- [SurviveJS](http://survivejs.com/) for being an unbelievably useful resource for figuring out Webpack config stuff. Almost all of the webpack tricks implemented in `yo mobx-react` are based on things I learned from SurviveJS. Definitely buy the book!
+
 ## License
 
 MIT © [Chris Freeman]()
