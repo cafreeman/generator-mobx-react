@@ -19,12 +19,42 @@ const common = {
     src: PATHS.src,
     style: PATHS.style,
   },
-  resolve: {
-    <% if (language === 'es2015') { %>
-      extensions: ['', '.js', '.jsx'],
-    <% } else { %>
-      extensions: ['', '.ts', '.tsx', '.js']
-    <% } %>
+  resolve: {<% if (language === 'es2015') { %>
+    extensions: ['', '.js', '.jsx'],
+  <% } else { %>
+    extensions: ['', '.ts', '.tsx', '.js']
+  <% } %>},
+  module: {
+    loaders: [
+      {
+        test: /\.(jpg|png)$/,
+        loader: 'file?name=[path][name].[hash].[ext]',
+        // include: PATHS.images,
+      },
+      {
+        test: /\.svg$/,
+        loader: 'file',
+        // include: PATHS.images,
+      },
+      {
+        'test': /\.woff2?$/,
+        loader: 'url',
+        query: {
+          prefix: 'font/',
+          limit: 5000,
+          mimetype: 'application/font-woff',
+        },
+        // include: PATHS.fonts,
+      },
+      {
+        test: /\.(ttf|eot)$/,
+        loader: 'file',
+        query: {
+          prefix: 'font/',
+        },
+        // include: PATHS.fonts,
+      },
+    ],
   },
   output: {
     path: PATHS.dist,
@@ -62,8 +92,7 @@ if (TARGET === 'start' || !TARGET) {
           loaders: ['style', 'css'],
           include: PATHS.src,
         },
-        {
-        <% if (language === 'es2015') { %>
+        {<% if (language === 'es2015') { %>
           test: /\.jsx?$/,
           loader: 'babel',
           query: {
@@ -76,8 +105,7 @@ if (TARGET === 'start' || !TARGET) {
           test: /\.tsx?$/,
           loader: 'ts-loader',
           include: PATHS.src,
-        <% } %>
-        },
+        <% } %>},
       ],
     },
     plugins: [
@@ -111,8 +139,7 @@ if (TARGET === 'build') {
           loader: ExtractTextPlugin.extract('style', 'css'),
           include: PATHS.src,
         },
-        {
-        <% if (language === 'es2015') { %>
+        {<% if (language === 'es2015') { %>
           test: /\.jsx?$/,
           loader: 'babel',
           query: {
@@ -125,8 +152,7 @@ if (TARGET === 'build') {
           test: /\.tsx?$/,
           loader: 'ts-loader',
           include: PATHS.src,
-        <% } %>
-        },
+        <% } %>},
       ],
     },
     plugins: [
