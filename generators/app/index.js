@@ -59,7 +59,7 @@ module.exports = yeoman.Base.extend({
       `"extract-text-webpack-plugin": "^1.0.0"`,
       `"file-loader": "^0.8.5"`,
       `"html-webpack-plugin": "^2.15.0"`,
-      `"npm-install-webpack-plugin": "^3.0.0"`,
+      `"npm-install-webpack-plugin": "3.0.0"`,
       `"rimraf": "^2.5.0"`,
       `"style-loader": "^0.13.0"`,
       `"url-loader": "^0.5.0"`,
