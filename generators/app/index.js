@@ -116,6 +116,7 @@ module.exports = yeoman.Base.extend({
       this.destinationPath('package.json'), {
         name: this.props.name,
         description: this.props.description,
+        language: this.props.language,
         devDeps,
       }
     );

@@ -2,14 +2,15 @@
   "name": "<%= name %>",
   "version": "0.0.0",
   "description": "<%= description %>",
-  "main": "index.js",
-  "jsnext:main": "es6/index.js",
+  "main": "index.js",<% if (language === 'es2015') { %>
+  "jsnext:main": "es6/index.js",<% } %>
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
+    "test": "echo \"Error: no test specified\" && exit 1",<% if (language === 'es2015') { %>
     "compile": "npm run build && npm run build-es6",
-    "clean": "rimraf '*(es6|dist)'",
-    "build": "webpack",
     "build-es6": "rimraf 'es6' && babel --presets react,stage-1 --plugins transform-decorators-legacy,transform-object-assign,array-includes src -d es6",
+    "clean": "rimraf '*(es6|dist)'",<% } else { %>
+    "clean": "rimraf '*(dist|build)'",<% } %>
+    "build": "webpack",
     "start": "webpack-dev-server"
   },
   "author": "",
