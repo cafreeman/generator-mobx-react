@@ -5,6 +5,7 @@ const HtmlWebpackPlugin = require('html-webpack-plugin');
 const NpmInstallPlugin = require('npm-install-webpack-plugin');
 const CleanWebpackPlugin = require('clean-webpack-plugin');
 const ExtractTextPlugin = require('extract-text-webpack-plugin');
+<% if (language === 'ts') { %>const ForkCheckerPlugin = require('awesome-typescript-loader').ForkCheckerPlugin;<% } %>
 
 const pkg = require('./package.json');
 const TARGET = process.env.npm_lifecycle_event;
@@ -63,7 +64,9 @@ const common = {
   plugins: [
     new HtmlWebpackPlugin({
       title: '<%= name %>',
-    }),
+    }),<% if (language === 'ts') { %>
+    new ForkCheckerPlugin(),
+  <% } %>
   ],
 };
 
@@ -103,7 +106,10 @@ if (TARGET === 'start' || !TARGET) {
           include: PATHS.src,
         <% } else { %>
           test: /\.tsx?$/,
-          loader: 'ts-loader',
+          loaders: [
+            'react-hot',
+            'awesome-typescript-loader',
+          ],
           include: PATHS.src,
         <% } %>},
       ],
@@ -150,7 +156,7 @@ if (TARGET === 'build') {
           include: PATHS.src,
         <% } else { %>
           test: /\.tsx?$/,
-          loader: 'ts-loader',
+          loader: 'awesome-typescript-loader',
           include: PATHS.src,
         <% } %>},
       ],

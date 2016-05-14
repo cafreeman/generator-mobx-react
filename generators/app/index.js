@@ -93,7 +93,8 @@ module.exports = yeoman.Base.extend({
         fullDeps = commonDeps.concat(
           [
             /* eslint-disable quotes */
-            `"ts-loader": "^0.8.0"`,
+            `"awesome-typescript-loader": "^0.17.0"`,
+            `"react-hot-loader": "^1.3.0"`,
             `"typescript": "^1.8.0"`,
             `"typings": "^0.7.0"`,
             /* eslint-enable quotes */
