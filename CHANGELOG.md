@@ -1,5 +1,13 @@
 ### Change Log
 
+v0.3.0 (2016-05-14)
+
+- Using `awesome-typescript-loader` now since it allows for things like incremental compilation, hot reloading, npm-auto-install when using TypeScript.
+- Moved all `eslint` related config to only occur when using `es2015` since it doesn't really apply to TypeScript
+- Use `react-hot-loader` with TypeScript since `react-transform-hmr` doesn't seem to play nicely with the typescript loaders. Plus, all the hot-reloading is about to be deprecated anyway so this will all probably have to change again soon :(
+- Updated the config step to tweak the `npm scripts` based on language preference. If using TypeScript, we don't need all the extra es6-related scripts
+- Updated the font configurations in `webpack.config.js` to be more flexible and allow for version numbers after the extension (so things like font-awesome don't just break everything)
+
 v0.1.0 (2016-04-18)
 
 - Add support for TypeScript!!!

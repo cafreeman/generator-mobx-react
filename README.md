@@ -23,7 +23,7 @@ This generator will set up a basic React/MobX project for you, including the fol
   - If using TypeScript, `yo mobx-react` will install the latest version of TypeScript, plus [Typings](https://github.com/typings/typings) for type definitions. It will also set up a basic `tsconfig` and `typings.json` file for you, with `React` and `React-DOM` typings installed.
 
 - Webpack, with the following configuration
-    - transpilation via `babel-loader` or `ts-loader`
+    - transpilation via `babel-loader` or `awesome-typescript-loader`
     - css bundling
     - npm-auto-install
     - code splitting in production builds
