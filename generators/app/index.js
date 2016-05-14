@@ -62,8 +62,8 @@ module.exports = yeoman.Base.extend({
       `"style-loader": "^0.13.0"`,
       `"url-loader": "^0.5.0"`,
       `"webpack": "^1.12.0"`,
-      `"webpack-dev-server": "^1.14.1"`,
-      `"webpack-merge": "^0.8.4"`,
+      `"webpack-dev-server": "^1.14.0"`,
+      `"webpack-merge": "^0.12.0"`,
       /* eslint-enable quotes */
     ];
 
@@ -97,7 +97,7 @@ module.exports = yeoman.Base.extend({
             `"awesome-typescript-loader": "^0.17.0"`,
             `"react-hot-loader": "^1.3.0"`,
             `"typescript": "^1.8.0"`,
-            `"typings": "^0.7.0"`,
+            `"typings": "^0.8.0"`,
             /* eslint-enable quotes */
           ]
         );
