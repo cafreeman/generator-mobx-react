@@ -54,8 +54,6 @@ module.exports = yeoman.Base.extend({
       /* eslint-disable quotes */
       `"clean-webpack-plugin": "^0.1.8"`,
       `"css-loader": "^0.23.0"`,
-      `"eslint": "^2.5.0"`,
-      `"eslint-plugin-react": "^4.2.0"`,
       `"extract-text-webpack-plugin": "^1.0.0"`,
       `"file-loader": "^0.8.5"`,
       `"html-webpack-plugin": "^2.15.0"`,
@@ -85,7 +83,10 @@ module.exports = yeoman.Base.extend({
             `"babel-preset-react": "^6.0.0"`,
             `"babel-preset-react-hmre": "^1.0.0"`,
             `"babel-preset-stage-1": "^6.0.0"`,
+            `"eslint": "^2.5.0"`,
             `"eslint-config-airbnb": "^6.0.0"`,
+            `"eslint-plugin-react": "^4.2.0"`,
+            `"eslint-plugin-jsx-a11y": "^0.6.0"`,
             /* eslint-enable quotes */
           ]
         );
