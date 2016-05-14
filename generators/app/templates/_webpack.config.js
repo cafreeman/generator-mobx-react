@@ -33,26 +33,18 @@ const common = {
         // include: PATHS.images,
       },
       {
-        test: /\.svg$/,
-        loader: 'file',
-        // include: PATHS.images,
-      },
-      {
-        'test': /\.woff2?$/,
+        'test': /\.woff2?(\?v=[0-9]\.[0-9]\.[0-9])?/,
         loader: 'url',
         query: {
           prefix: 'font/',
-          limit: 5000,
+          limit: 10000,
           mimetype: 'application/font-woff',
         },
         // include: PATHS.fonts,
       },
       {
-        test: /\.(ttf|eot)$/,
-        loader: 'file',
-        query: {
-          prefix: 'font/',
-        },
+        test: /\.(ttf|eot|svg)(\?v=[0-9]\.[0-9]\.[0-9])?/,
+        loader: 'url',
         // include: PATHS.fonts,
       },
     ],
