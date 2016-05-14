@@ -16,12 +16,6 @@
         "suppressImplicitAnyIndexErrors": true,
         "outDir": "./build"
     },
-    "exclude": [
-        "node_modules",
-        "typings/browser",
-        "typings/browser.d.ts"
-    ],
-    "compileOnSave": true,
     "awesomeTypeScriptLoaderOptions": {
       "forkChecker": true,
       "useBabel": true,
@@ -31,5 +25,12 @@
     "buildOnSave": false,
     "atom": {
         "rewriteTsconfig": false
-    }
+    },
+    "filesGlob": [
+      "src/**/*.ts",
+      "src/**/*.tsx",
+      "typings/main/**/*.d.ts",
+      "typings/main.d.ts",
+      "!node_modules/**"
+    ]
 }
