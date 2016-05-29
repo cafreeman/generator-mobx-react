@@ -10,6 +10,6 @@ document.body.appendChild(root);
 const store = new Store();
 
 ReactDOM.render(
-  <App store= { store } />,
+  <App store={store} />,
   document.querySelector('#app')
 );
