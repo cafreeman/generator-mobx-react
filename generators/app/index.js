@@ -52,18 +52,18 @@ module.exports = yeoman.Base.extend({
   writing() {
     const baseDevDeps = [
       /* eslint-disable quotes */
-      `"clean-webpack-plugin": "^0.1.8"`,
+      `"clean-webpack-plugin": "^0.1.0"`,
       `"css-loader": "^0.23.0"`,
       `"extract-text-webpack-plugin": "^1.0.0"`,
-      `"file-loader": "^0.8.5"`,
+      `"file-loader": "^0.8.0"`,
       `"html-webpack-plugin": "^2.15.0"`,
-      `"npm-install-webpack-plugin": "^3.0.0"`,
+      `"npm-install-webpack-plugin": "^4.0.0"`,
       `"rimraf": "^2.5.0"`,
       `"style-loader": "^0.13.0"`,
       `"url-loader": "^0.5.0"`,
       `"webpack": "^1.12.0"`,
       `"webpack-dev-server": "^1.14.0"`,
-      `"webpack-merge": "^0.12.0"`,
+      `"webpack-merge": "^0.13.0"`,
       /* eslint-enable quotes */
     ];
 
@@ -83,10 +83,11 @@ module.exports = yeoman.Base.extend({
             `"babel-preset-react": "^6.0.0"`,
             `"babel-preset-react-hmre": "^1.0.0"`,
             `"babel-preset-stage-1": "^6.0.0"`,
-            `"eslint": "^2.5.0"`,
-            `"eslint-config-airbnb": "^6.0.0"`,
-            `"eslint-plugin-react": "^4.2.0"`,
-            `"eslint-plugin-jsx-a11y": "^0.6.0"`,
+            `"eslint": "^2.11.0"`,
+            `"eslint-config-airbnb": "^9.0.0"`,
+            `"eslint-plugin-import": "^1.8.0"`,
+            `"eslint-plugin-react": "^5.1.0"`,
+            `"eslint-plugin-jsx-a11y": "^1.2.0"`,
             /* eslint-enable quotes */
           ]
         );
