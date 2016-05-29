@@ -1,5 +1,17 @@
 ### Change Log
 
+v0.3.1 (2016-05-29)
+
+- Updated version numbers for the following packages:
+  - eslint-config-airbnb
+  - eslint-plugin-react
+  - eslint-plugin-jsx-a11y
+  - npm-install-webpack-plugin
+  - webpack-merge
+- Added one new dependency
+  - eslint-plugin-import
+- Fixed some minor typos in the example components
+
 v0.3.0 (2016-05-14)
 
 - Using `awesome-typescript-loader` now since it allows for things like incremental compilation, hot reloading, npm-auto-install when using TypeScript.
