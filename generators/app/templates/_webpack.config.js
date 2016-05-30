@@ -142,7 +142,7 @@ if (TARGET === 'build') {
           loader: 'babel',
           query: {
             cacheDirectory: true,
-            presets: ['react', 'es2015', 'stage-1','react-hmre'],
+            presets: ['react', 'es2015', 'stage-1'],
             plugins: ['transform-decorators-legacy', 'transform-object-assign', 'array-includes'],
           },
           include: PATHS.src,
