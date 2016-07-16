@@ -124,10 +124,10 @@ if (TARGET === 'build') {
     },
     output: {
       path: PATHS.build,
-      filename: '[name].js',
+      // filename: '[name].js',
       // Create a hash for each file in the build so we can detect which files have changed
-      // filename: '[name].[chunkhash].js',
-      // chunkFilename: '[chunkhash].js',
+      filename: '[name].[chunkhash].js',
+      chunkFilename: '[chunkhash].js',
     },
     module: {
       loaders: [
@@ -157,8 +157,8 @@ if (TARGET === 'build') {
       // Clear the contents of the build directory before re-building
       new CleanWebpackPlugin(PATHS.dist),
       // Output extracted CSS to its own file
-      new ExtractTextPlugin('[name].css'),
-      // new ExtractTextPlugin('[name].[chunkhash].css'),
+      // new ExtractTextPlugin('[name].css'),
+      new ExtractTextPlugin('[name].[chunkhash].css'),
       // Split dependencies into a `vendor` file and provide a manifest
       new webpack.optimize.CommonsChunkPlugin({
         names: ['vendor', 'manifest'],
