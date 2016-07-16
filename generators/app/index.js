@@ -97,6 +97,8 @@ module.exports = yeoman.Base.extend({
             /* eslint-disable quotes */
             `"awesome-typescript-loader": "^1.0.0"`,
             `"react-hot-loader": "^1.3.0"`,
+            `"tslint": "^3.0.0"`,
+            `"tslint-react": "^0.4.0"`,
             `"typescript": "^1.8.0"`,
             `"typings": "^1.0.0"`,
             /* eslint-enable quotes */
@@ -136,6 +138,13 @@ module.exports = yeoman.Base.extend({
       );
     }
 
+    if (this.props.language === 'ts') {
+      this.fs.copy(
+        this.templatePath('_tslint.json'),
+        this.destinationPath('tslint.json')
+      );
+    }
+
     // webpack config
     this.fs.copyTpl(
       this.templatePath('_webpack.config.js'),
@@ -148,7 +157,8 @@ module.exports = yeoman.Base.extend({
 
     // copy app src, dependent on language choice
     this.fs.copyTpl(
-      this.templatePath(`src_${this.props.language === 'es2015' ? 'es2015' : 'ts'}`),
+      // this.templatePath(`src_${this.props.language === 'es2015' ? 'es2015' : 'ts'}`),
+      this.templatePath(`src_${this.props.language}`),
       this.destinationPath('src'),
       {
         name: this.props.name,
