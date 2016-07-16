@@ -95,10 +95,10 @@ module.exports = yeoman.Base.extend({
         fullDeps = commonDeps.concat(
           [
             /* eslint-disable quotes */
-            `"awesome-typescript-loader": "^0.17.0"`,
+            `"awesome-typescript-loader": "^1.0.0"`,
             `"react-hot-loader": "^1.3.0"`,
             `"typescript": "^1.8.0"`,
-            `"typings": "^0.8.0"`,
+            `"typings": "^1.0.0"`,
             /* eslint-enable quotes */
           ]
         );
@@ -171,10 +171,10 @@ module.exports = yeoman.Base.extend({
         if (this.props.language === 'ts') {
           this.spawnCommandSync('./node_modules/.bin/typings', ['init']);
           this.spawnCommandSync('./node_modules/.bin/typings',
-            ['install', 'react', '--ambient', '--save']
+            ['install', 'react', '--save']
           );
           this.spawnCommandSync('./node_modules/.bin/typings',
-            ['install', 'react-dom', '--ambient', '--save']
+            ['install', 'react-dom', '--save']
           );
         }
       });
