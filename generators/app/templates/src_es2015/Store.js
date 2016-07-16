@@ -1,4 +1,4 @@
-import { observable, computed } from 'mobx';
+import { observable, computed, action } from 'mobx';
 
 class Store {
   name = '<%= name %>';
@@ -9,7 +9,7 @@ class Store {
     return this.numClicks % 2 === 0 ? 'even' : 'odd';
   }
 
-  clickButton() {
+  @action clickButton() {
     this.numClicks++;
   }
 }
