@@ -29,8 +29,8 @@
     "filesGlob": [
       "src/**/*.ts",
       "src/**/*.tsx",
-      "typings/main/**/*.d.ts",
-      "typings/main.d.ts",
+      "typings/**/*.d.ts",
+      "typings/index.d.ts",
       "!node_modules/**"
     ]
 }

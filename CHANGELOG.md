@@ -1,5 +1,18 @@
 ### Change Log
 
+v0.4.0 (2015-07-16)
+
+- Update dependencies for both ES2015 and TypeScript builds.
+  - ES2015 dependency updates:
+    - minor updates to `file-loader` and `webpack-merge`
+    - major updates to `eslint` and `eslint-plugin-jsx-a11y`
+  - TypeScript dependency updates:
+    - `awesome-typescript-loader`
+    - `typings`
+- Minor tweaks to the example apps to reflect the new `action` decorator in `mobx`
+- the `build` task now performs file and chunk hashing, per the request in [Issue 4](https://github.com/cafreeman/generator-mobx-react/issues/4)
+- added `TSLint`, `tslint-react`, and a *very* minimal `tslint.json` config for the TypeScript build, per the request in [Issue 3](https://github.com/cafreeman/generator-mobx-react/issues/3)
+
 v0.3.1 (2016-05-29)
 
 - Updated version numbers for the following packages:

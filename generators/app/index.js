@@ -55,7 +55,7 @@ module.exports = yeoman.Base.extend({
       `"clean-webpack-plugin": "^0.1.0"`,
       `"css-loader": "^0.23.0"`,
       `"extract-text-webpack-plugin": "^1.0.0"`,
-      `"file-loader": "^0.8.0"`,
+      `"file-loader": "^0.9.0"`,
       `"html-webpack-plugin": "^2.15.0"`,
       `"npm-install-webpack-plugin": "^4.0.0"`,
       `"rimraf": "^2.5.0"`,
@@ -63,7 +63,7 @@ module.exports = yeoman.Base.extend({
       `"url-loader": "^0.5.0"`,
       `"webpack": "^1.12.0"`,
       `"webpack-dev-server": "^1.14.0"`,
-      `"webpack-merge": "^0.13.0"`,
+      `"webpack-merge": "^0.14.0"`,
       /* eslint-enable quotes */
     ];
 
@@ -83,11 +83,11 @@ module.exports = yeoman.Base.extend({
             `"babel-preset-react": "^6.0.0"`,
             `"babel-preset-react-hmre": "^1.0.0"`,
             `"babel-preset-stage-1": "^6.0.0"`,
-            `"eslint": "^2.11.0"`,
+            `"eslint": "^3.1.0"`,
             `"eslint-config-airbnb": "^9.0.0"`,
             `"eslint-plugin-import": "^1.8.0"`,
             `"eslint-plugin-react": "^5.1.0"`,
-            `"eslint-plugin-jsx-a11y": "^1.2.0"`,
+            `"eslint-plugin-jsx-a11y": "^2.0.0"`,
             /* eslint-enable quotes */
           ]
         );
@@ -95,10 +95,12 @@ module.exports = yeoman.Base.extend({
         fullDeps = commonDeps.concat(
           [
             /* eslint-disable quotes */
-            `"awesome-typescript-loader": "^0.17.0"`,
+            `"awesome-typescript-loader": "^1.0.0"`,
             `"react-hot-loader": "^1.3.0"`,
+            `"tslint": "^3.0.0"`,
+            `"tslint-react": "^0.4.0"`,
             `"typescript": "^1.8.0"`,
-            `"typings": "^0.8.0"`,
+            `"typings": "^1.0.0"`,
             /* eslint-enable quotes */
           ]
         );
@@ -136,6 +138,13 @@ module.exports = yeoman.Base.extend({
       );
     }
 
+    if (this.props.language === 'ts') {
+      this.fs.copy(
+        this.templatePath('_tslint.json'),
+        this.destinationPath('tslint.json')
+      );
+    }
+
     // webpack config
     this.fs.copyTpl(
       this.templatePath('_webpack.config.js'),
@@ -148,7 +157,8 @@ module.exports = yeoman.Base.extend({
 
     // copy app src, dependent on language choice
     this.fs.copyTpl(
-      this.templatePath(`src_${this.props.language === 'es2015' ? 'es2015' : 'ts'}`),
+      // this.templatePath(`src_${this.props.language === 'es2015' ? 'es2015' : 'ts'}`),
+      this.templatePath(`src_${this.props.language}`),
       this.destinationPath('src'),
       {
         name: this.props.name,
@@ -171,10 +181,10 @@ module.exports = yeoman.Base.extend({
         if (this.props.language === 'ts') {
           this.spawnCommandSync('./node_modules/.bin/typings', ['init']);
           this.spawnCommandSync('./node_modules/.bin/typings',
-            ['install', 'react', '--ambient', '--save']
+            ['install', 'react', '--save']
           );
           this.spawnCommandSync('./node_modules/.bin/typings',
-            ['install', 'react-dom', '--ambient', '--save']
+            ['install', 'react-dom', '--save']
           );
         }
       });
